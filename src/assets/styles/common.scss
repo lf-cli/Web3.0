@@ -1,0 +1,62 @@
+.liner-gradient {
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 0.3rem;
+  background: linear-gradient(0deg, #92cbff 0%, #fafafb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.row-center {
+  position: absolute;
+  left: 50% !important;
+  transform: translateX(-50%);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-a {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex-b {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overflow-dot {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fold-transform-left {
+  transform: translateX(-110%);
+  transition: all 0.4s ease;
+}
+.fold-transform-right {
+  transform: translateX(110%);
+  transition: all 0.4s ease;
+}
+
+.text-green {
+  color: #00a65a !important;
+}
+.text-orange {
+  color: #ff851b !important;
+}
+.text-bold {
+  font-weight: 700 !important;
+}

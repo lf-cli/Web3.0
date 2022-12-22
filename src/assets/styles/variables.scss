@@ -1,0 +1,16 @@
+// base color
+$mainColor: #0096ff;
+
+$base: #0c6bba;
+$base-active: #0e62a7;
+$base-border: $base-active;
+$base-border-active: darken($base-border, 10%);
+$base-menu: #333;
+$base-menu-background: #262626;
+$base-navbar: $base;
+$base-navbar-active: $base-active;
+
+// $siderWidth: 230px;
+$headerHeight: 48px;
+// $siderMenuHoverWidth: 180px;
+$siderMenuHoverWidth: 130px;
