@@ -12,3 +12,4 @@ dist
 .husky
 .local
 /bin
+src/assets/styles

@@ -11,7 +11,13 @@ module.exports = {
     echarts: true,
     AMap: true,
   },
-  extends: ['plugin:vue/recommended', 'eslint:recommended', 'plugin:vue/essential'],
+  extends: [
+    'plugin:vue/recommended',
+    'eslint:recommended',
+    'plugin:vue/essential',
+    './.eslintrc-auto-import.json',
+  ],
+  parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
     parser: '@typescript-eslint/parser',
@@ -42,5 +48,20 @@ module.exports = {
     'no-var': 2, //禁止使用var
     'default-case': 2, //switch语句必须有default
     'no-extra-parens': 2, //禁止不必要的括号
+    '@typescript-eslint/no-unused-vars': [
+      //解决.d.ts中报错
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
+    'no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
   },
 }
