@@ -3,6 +3,9 @@ import './assets/styles/index.scss'
 import Router from './router/index'
 import { setupStore } from './store/index'
 import App from './App.vue'
+import 'virtual:svg-icons-register' //svgIcon
+
+import './utils/permission'
 async function bootstrap() {
   const app = createApp(App)
 

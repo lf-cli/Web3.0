@@ -27,7 +27,7 @@
 - .gitignore git 不提交的目录
 - .prettierrc.cjs 格式化文件，统一代码风格
 - auto-imports.d.ts 自动导入 elementui
-- components.d.ts 自动导入全局组件，不用管
+- components.d.ts 自动导入全局组件
 - index.html 入口文件
 - jsconfig.json 输入@后能自动提示文件夹目录
 - package.json 依赖
@@ -49,6 +49,7 @@
 - 开发风格需要遵从 pretter，相关配置在.prettierrc.cjs 中
 - 项目集成了 husky,提交会自动校验 eslint 和 prettier
 - 要遵从组合式 api 开发的理念，适当抽离 hook
+- components 里开发公共组件，且用大驼峰的方式命名
 
 ### TODO
 
@@ -56,7 +57,7 @@
 2. [x] git 提交校验
 3. [ ] 公共方法封装
 4. [ ] inteface,type,enum 开发
-5. [ ] icon 图标接入
+5. [x] icon 图标接入
 6. [x] 接入 elementui
 7. [ ] 接入高德地图
 8. [ ] 权限模块开发

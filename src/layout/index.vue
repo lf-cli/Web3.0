@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-  import HeaderBox from '@/components/common/header.vue'
+  import HeaderBox from '@/components/Common/Header.vue'
 </script>
 <style lang="scss" scoped>
   .wrapper-container {

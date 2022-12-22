@@ -9,6 +9,7 @@
       placeholder="Select date and time"
     />
     <el-input placeholder="输入时" />
+    <svg-icon icon-class="vite" style="width: 40px" />
   </div>
 </template>
 <script lang="ts" setup>
