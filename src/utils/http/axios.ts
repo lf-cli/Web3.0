@@ -12,8 +12,12 @@ import { useProgress } from '@/store/modules/uploadProgress'
 import { ElLoading } from 'element-plus'
 // import qs from 'qs'
 
-import { getToken } from '../user'
+import { getToken, User } from '../user'
 import { RequestOptions, Result, requesrParams } from '../../types/axios'
+
+interface myAxiosRequestConfig extends AxiosRequestConfig {
+  headers?: any
+}
 
 const baseConfig = {
   baseURL: import.meta.env.VITE_API_URL,
@@ -33,10 +37,8 @@ class RequestHttp {
   private setupInterceptors() {
     const axiosCancel = new AxiosCanceler()
     this.axiosInstance.interceptors.request.use(
-      (config: AxiosRequestConfig) => {
-        config.headers = {
-          authorization: this.axiosConfig.token || getToken()
-        }
+      (config: myAxiosRequestConfig) => {
+        config.headers[User.TOKEN] = this.axiosConfig.token || getToken() // 加请求头
         if (this.axiosConfig.showUploadProgress) {
           const useUploadProgress = useProgress()
           config.onUploadProgress = (e) => {

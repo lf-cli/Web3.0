@@ -8,6 +8,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import path from 'path'
+import { createHtmlPlugin } from 'vite-plugin-html'
 
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, process.cwd())
@@ -37,6 +38,14 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         iconDirs: [path.resolve(process.cwd(), 'src/icons')],
         // 指定symbolId格式
         symbolId: 'icon-[name]'
+      }),
+      createHtmlPlugin({
+        inject: {
+          data: {
+            //将环境变量 VITE_APP_TITLE 赋值给 title 方便 html页面使用 title 获取系统标题
+            title: viteEnv.VITE_GLOB_APP_TITLE
+          }
+        }
       })
     ],
     esbuild: {
