@@ -18,7 +18,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     plugins: [
       vue(),
       eslintPlugin({
-        include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue'],
+        include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
       }),
       // 自动引入element组件
       AutoImport({
@@ -26,22 +26,22 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         eslintrc: {
           enabled: false,
           filepath: './.eslintrc-auto-import.json',
-          globalsPropValue: true,
-        },
+          globalsPropValue: true
+        }
       }),
       Components({
-        resolvers: [ElementPlusResolver()],
+        resolvers: [ElementPlusResolver()]
       }),
       createSvgIconsPlugin({
         // 指定需要缓存的图标文件夹
         iconDirs: [path.resolve(process.cwd(), 'src/icons')],
         // 指定symbolId格式
-        symbolId: 'icon-[name]',
-      }),
+        symbolId: 'icon-[name]'
+      })
     ],
     esbuild: {
       // 移除生产环境下的console
-      pure: viteEnv.VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : [],
+      pure: viteEnv.VITE_DROP_CONSOLE ? ['console.log', 'debugger'] : []
     },
     server: {
       port: viteEnv.VITE_PORT,
@@ -51,14 +51,14 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         '/api': {
           target: 'http://prd9.hbjk.com.cn:8080/v4/',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
-        },
-      },
+          rewrite: (path) => path.replace(/^\/api/, '')
+        }
+      }
     },
     resolve: {
       alias: {
-        '@': resolve(__dirname, 'src'),
-      },
+        '@': resolve(__dirname, 'src')
+      }
     },
     css: {
       preprocessorOptions: {
@@ -66,9 +66,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
           // 每个页面都无需再引入即可直接使用两个文件中的变量和方法
           additionalData: `
             @import "src/assets/styles/mixin.scss";
-            @import "src/assets/styles/variables.scss";`,
-        },
-      },
-    },
+            @import "src/assets/styles/variables.scss";`
+        }
+      }
+    }
   }
 })

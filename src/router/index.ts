@@ -5,12 +5,12 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: '',
-    redirect: '/login',
+    redirect: '/login'
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/login.vue'),
+    component: () => import('@/views/login.vue')
   },
   {
     path: '/demo',
@@ -20,15 +20,15 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         name: 'demo',
-        component: () => import('@/views/demo.vue'),
-      },
-    ],
-  },
+        component: () => import('@/views/demo.vue')
+      }
+    ]
+  }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes
 })
 
 export default router

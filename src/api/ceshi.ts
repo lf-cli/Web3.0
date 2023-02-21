@@ -7,18 +7,18 @@ export function ceshi(params: any) {
     options: {
       loading: true,
       token: 'aaaa',
-      showUploadProgress: true,
-    },
+      showUploadProgress: true
+    }
   })
 }
 export function ceshi1() {
   return http.get({
     url: '/stationList',
     params: {
-      b: 1,
+      b: 1
     },
     options: {
-      token: 'bbb',
-    },
+      token: 'bbb'
+    }
   })
 }

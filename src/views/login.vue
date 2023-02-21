@@ -25,19 +25,19 @@
       {
         confirmButtonText: 'OK',
         cancelButtonText: 'Cancel',
-        type: 'warning',
+        type: 'warning'
       }
     )
       .then(() => {
         ElMessage({
           type: 'success',
-          message: 'Delete completed',
+          message: 'Delete completed'
         })
       })
       .catch(() => {
         ElMessage({
           type: 'info',
-          message: 'Delete canceled',
+          message: 'Delete canceled'
         })
       })
   }

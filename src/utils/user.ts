@@ -1,5 +1,5 @@
 export enum User {
-  TOKEN = 'authorization',
+  TOKEN = 'authorization'
 }
 
 export function getToken() {

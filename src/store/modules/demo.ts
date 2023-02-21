@@ -5,12 +5,12 @@ interface demoInfo {
 
 export const userDemoStore = defineStore('app-demo', {
   state: (): demoInfo => ({
-    count: 1,
+    count: 1
   }),
   getters: {},
   actions: {
     addCount() {
       this.count++
-    },
-  },
+    }
+  }
 })

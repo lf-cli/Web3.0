@@ -6,10 +6,10 @@ interface userInfo {
 
 export const useUserStore = defineStore('app-user', {
   state: (): userInfo => ({
-    userInfo: {},
+    userInfo: {}
   }),
   getters: {},
   actions: {
-    getUserInfo() {},
-  },
+    getUserInfo() {}
+  }
 })
