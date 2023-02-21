@@ -20,6 +20,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       eslintPlugin({
         include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue'],
       }),
+      // 自动引入element组件
       AutoImport({
         resolvers: [ElementPlusResolver()],
         eslintrc: {
@@ -48,7 +49,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       open: viteEnv.VITE_OPEN,
       proxy: {
         '/api': {
-          target: 'http://47.103.5.123:8080',
+          target: 'http://prd9.hbjk.com.cn:8080/v4/',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },

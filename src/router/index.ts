@@ -4,6 +4,11 @@ const routes: RouteRecordRaw[] = [
   { path: '/:catchAll(.*)', component: () => import('@/views/404.vue') },
   {
     path: '/',
+    name: '',
+    redirect: '/login',
+  },
+  {
+    path: '/login',
     name: 'login',
     component: () => import('@/views/login.vue'),
   },
