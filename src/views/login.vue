@@ -15,7 +15,7 @@
 <script lang="ts" setup>
   import { ref, onMounted } from 'vue'
   import { useRouter } from 'vue-router'
-  import { ceshi } from '@/api/ceshi'
+  import { ceshi } from '@/api/demo/ceshi'
   const router = useRouter()
   const time = ref('')
   const openVn = () => {
@@ -42,21 +42,8 @@
       })
   }
 
-  onMounted(() => {
-    for (let i = 0; i < 3; i++) {
-      ceshi({ a: i })
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }
-
-    // setTimeout(() => {
-    //   ceshi1().then((res) => {
-    //     console.log(res)
-    //   })
-    // }, 3000)
+  onMounted(async () => {
+    const res = await ceshi()
+    res.result.total
   })
 </script>

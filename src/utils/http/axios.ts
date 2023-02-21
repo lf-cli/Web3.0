@@ -27,7 +27,7 @@ const baseConfig = {
 }
 class RequestHttp {
   public axiosInstance: AxiosInstance
-  public axiosConfig: any // 全局参数，用于
+  public axiosConfig: any // 全局参数
   constructor(config: AxiosRequestConfig) {
     this.axiosInstance = axios.create(config)
     this.setupInterceptors()
