@@ -6,7 +6,7 @@ import AMapLoader from '@amap/amap-jsapi-loader'
 // cgcs200： 天地图
 // wgs84： osm、谷歌、arcgisonline
 
-const x_PI = 3.14159265358979324 * 3000.0 / 180.0
+const x_PI = (3.14159265358979324 * 3000.0) / 180.0
 const PI = 3.1415926535897932384626
 const a = 6378245.0
 const ee = 0.00669342162296594323
@@ -149,12 +149,12 @@ export function wgs84togcj02(longitude: number, latitude: number) {
   } else {
     let dlat = transformlat(longitude - 105.0, latitude - 35.0)
     let dlng = transformlng(longitude - 105.0, latitude - 35.0)
-    const radlat = latitude / 180.0 * PI
+    const radlat = (latitude / 180.0) * PI
     let magic = Math.sin(radlat)
     magic = 1 - ee * magic * magic
     const sqrtmagic = Math.sqrt(magic)
-    dlat = dlat * 180.0 / (a * (1 - ee) / (magic * sqrtmagic) * PI)
-    dlng = dlng * 180.0 / (a / sqrtmagic * Math.cos(radlat) * PI)
+    dlat = (dlat * 180.0) / (((a * (1 - ee)) / (magic * sqrtmagic)) * PI)
+    dlng = (dlng * 180.0) / ((a / sqrtmagic) * Math.cos(radlat) * PI)
     const mglat = latitude + dlat
     const mglng = longitude + dlng
     return [mglng, mglat]
@@ -170,18 +170,18 @@ function transformlat(longitude: number, latitude: number) {
     0.1 * longitude * latitude +
     0.2 * Math.sqrt(Math.abs(longitude))
   ret +=
-    (20.0 * Math.sin(6.0 * longitude * PI) +
+    ((20.0 * Math.sin(6.0 * longitude * PI) +
       20.0 * Math.sin(2.0 * longitude * PI)) *
-      2.0 /
+      2.0) /
     3.0
   ret +=
-    (20.0 * Math.sin(latitude * PI) + 40.0 * Math.sin(latitude / 3.0 * PI)) *
-      2.0 /
+    ((20.0 * Math.sin(latitude * PI) + 40.0 * Math.sin((latitude / 3.0) * PI)) *
+      2.0) /
     3.0
   ret +=
-    (160.0 * Math.sin(latitude / 12.0 * PI) +
-      320 * Math.sin(latitude * PI / 30.0)) *
-      2.0 /
+    ((160.0 * Math.sin((latitude / 12.0) * PI) +
+      320 * Math.sin((latitude * PI) / 30.0)) *
+      2.0) /
     3.0
   return ret
 }
@@ -195,19 +195,19 @@ function transformlng(longitude: number, latitude: number) {
     0.1 * longitude * latitude +
     0.1 * Math.sqrt(Math.abs(longitude))
   ret +=
-    (20.0 * Math.sin(6.0 * longitude * PI) +
+    ((20.0 * Math.sin(6.0 * longitude * PI) +
       20.0 * Math.sin(2.0 * longitude * PI)) *
-      2.0 /
+      2.0) /
     3.0
   ret +=
-    (20.0 * Math.sin(longitude * PI) +
-      40.0 * Math.sin(longitude / 3.0 * PI)) *
-      2.0 /
+    ((20.0 * Math.sin(longitude * PI) +
+      40.0 * Math.sin((longitude / 3.0) * PI)) *
+      2.0) /
     3.0
   ret +=
-    (150.0 * Math.sin(longitude / 12.0 * PI) +
-      300.0 * Math.sin(longitude / 30.0 * PI)) *
-      2.0 /
+    ((150.0 * Math.sin((longitude / 12.0) * PI) +
+      300.0 * Math.sin((longitude / 30.0) * PI)) *
+      2.0) /
     3.0
   return ret
 }
@@ -234,12 +234,12 @@ function delta(lat: number, lon: number) {
   const ee = 0.00669342162296594323 //  ee: 椭球的偏心率。
   let dLat = transformLat(lon - 105.0, lat - 35.0)
   let dLon = transformLon(lon - 105.0, lat - 35.0)
-  const radLat = lat / 180.0 * PI
+  const radLat = (lat / 180.0) * PI
   let magic = Math.sin(radLat)
   magic = 1 - ee * magic * magic
   const sqrtMagic = Math.sqrt(magic)
-  dLat = dLat * 180.0 / (a * (1 - ee) / (magic * sqrtMagic) * PI)
-  dLon = dLon * 180.0 / (a / sqrtMagic * Math.cos(radLat) * PI)
+  dLat = (dLat * 180.0) / (((a * (1 - ee)) / (magic * sqrtMagic)) * PI)
+  dLon = (dLon * 180.0) / ((a / sqrtMagic) * Math.cos(radLat) * PI)
   return {
     lat: dLat,
     lon: dLon
@@ -254,13 +254,13 @@ function transformLat(x: number, y: number) {
     0.1 * x * y +
     0.2 * Math.sqrt(Math.abs(x))
   ret +=
-    (20.0 * Math.sin(6.0 * x * PI) + 20.0 * Math.sin(2.0 * x * PI)) * 2.0 /
+    ((20.0 * Math.sin(6.0 * x * PI) + 20.0 * Math.sin(2.0 * x * PI)) * 2.0) /
     3.0
   ret +=
-    (20.0 * Math.sin(y * PI) + 40.0 * Math.sin(y / 3.0 * PI)) * 2.0 / 3.0
+    ((20.0 * Math.sin(y * PI) + 40.0 * Math.sin((y / 3.0) * PI)) * 2.0) / 3.0
   ret +=
-    (160.0 * Math.sin(y / 12.0 * PI) + 320 * Math.sin(y * PI / 30.0)) *
-      2.0 /
+    ((160.0 * Math.sin((y / 12.0) * PI) + 320 * Math.sin((y * PI) / 30.0)) *
+      2.0) /
     3.0
   return ret
 }
@@ -273,13 +273,13 @@ function transformLon(x: number, y: number) {
     0.1 * x * y +
     0.1 * Math.sqrt(Math.abs(x))
   ret +=
-    (20.0 * Math.sin(6.0 * x * PI) + 20.0 * Math.sin(2.0 * x * PI)) * 2.0 /
+    ((20.0 * Math.sin(6.0 * x * PI) + 20.0 * Math.sin(2.0 * x * PI)) * 2.0) /
     3.0
   ret +=
-    (20.0 * Math.sin(x * PI) + 40.0 * Math.sin(x / 3.0 * PI)) * 2.0 / 3.0
+    ((20.0 * Math.sin(x * PI) + 40.0 * Math.sin((x / 3.0) * PI)) * 2.0) / 3.0
   ret +=
-    (150.0 * Math.sin(x / 12.0 * PI) + 300.0 * Math.sin(x / 30.0 * PI)) *
-      2.0 /
+    ((150.0 * Math.sin((x / 12.0) * PI) + 300.0 * Math.sin((x / 30.0) * PI)) *
+      2.0) /
     3.0
   return ret
 }
@@ -452,14 +452,14 @@ export function searchDistrict(
 }
 
 // POI搜索 根据关键字查询点位在地图上相应的位置 使用需要加plugin=AMap.PlaceSearch
-export function placeSearch(cityCode:any, keywords:string) {
+export function placeSearch(cityCode: any, keywords: string) {
   return new Promise((resolve, reject) => {
     const placeSearch = new AMap.PlaceSearch({
       // city 指定搜索所在城市，支持传入格式有：城市名、citycode和adcode
       city: cityCode
     })
 
-    placeSearch.search(keywords, function (status:string, result:any) {
+    placeSearch.search(keywords, function (status: string, result: any) {
       // 查询成功时，result即对应匹配的POI信息
       console.log(result)
       if (result.info === 'OK') {
@@ -478,17 +478,17 @@ export function placeSearch(cityCode:any, keywords:string) {
  * @param {Object} format
  * @returns
  */
-export function json2Geojson(arr:object[], format:any) {
+export function json2Geojson(arr: object[], format: any) {
   const defaultLnglat = {
     lng: 'longt',
     lat: 'latit'
   }
   const lnglat = Object.assign(defaultLnglat, format)
-  const geojson:any = {
+  const geojson: any = {
     type: 'FeatureCollection',
-    features:[]
+    features: []
   }
-  arr.forEach((item:any) => {
+  arr.forEach((item: any) => {
     const obj = {
       type: 'Feature',
       properties: {

@@ -49,7 +49,7 @@ module.exports = {
     'no-loss-of-precision': 0,
     'semi': [2, 'never'],
     'default-case': 2, // switch语句必须有default
-    'no-extra-parens': 2, // 禁止不必要的括号
+    // 'no-extra-parens': 2, // 禁止不必要的括号
     '@typescript-eslint/no-unused-vars': [
       // 解决.d.ts中报错
       'error',
