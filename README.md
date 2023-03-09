@@ -1,3 +1,8 @@
+### 项目启动
+
+pnpm i
+npm run dev
+
 ### 项目架构说明
 
 > vite+ts+vue3.2+router4+pinia+pnpm+element-plus
@@ -65,3 +70,6 @@
 10. [x] prettier 格式化
 11. [x] CI/CD 集成
 12. [ ] 公共组件
+13. [ ] 抽离路由，路由和 header 或者 nav 使用同一组数据
+14. [ ] 公共 hooks 开发
+15. [ ] eecharts 组件

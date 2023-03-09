@@ -7,4 +7,34 @@
 
 ##### router 使用
 
-#####
+##### svg 使用
+
+`<svg-icon icon-class="vite" style="width: 40px" />`
+
+##### echarts 使用
+
+#### map 使用
+
+```
+import { loadMap } from '@/utils/map'
+let AMap: any
+let map:any
+loadMap([]).then((amap: any) => {
+  AMap = amap
+  map = new AMap.Map('amap', {
+    resizeEnable: false,
+    zoom: 13.5,
+    zooms: [2, 17],
+    mapStyle: 'amap://styles/4c6f45ddceac62ef3d57c5cf3e639b3f'
+  })
+  setMarker()
+})
+let markers = []
+const setMarker = ()=>{
+  const marker = new AMap.Marker({
+    map,
+    position:[113,31],
+  })
+  markers.push(marker)
+}
+```

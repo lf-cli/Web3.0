@@ -33,7 +33,7 @@ class RequestHttp {
     this.setupInterceptors()
   }
 
-  //设置拦截器
+  // 设置拦截器
   private setupInterceptors() {
     const axiosCancel = new AxiosCanceler()
     this.axiosInstance.interceptors.request.use(

@@ -42,7 +42,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       createHtmlPlugin({
         inject: {
           data: {
-            //将环境变量 VITE_APP_TITLE 赋值给 title 方便 html页面使用 title 获取系统标题
+            // 将环境变量 VITE_APP_TITLE 赋值给 title 方便 html页面使用 title 获取系统标题
             title: viteEnv.VITE_GLOB_APP_TITLE
           }
         }

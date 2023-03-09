@@ -11,5 +11,5 @@ module.exports = {
   jsxBracketSameLine: false, // 在jsx中把'>' 是否单独放一行
   arrowParens: 'always',
   htmlWhitespaceSensitivity: 'ignore',
-  vueIndentScriptAndStyle: true,
-}
+  vueIndentScriptAndStyle: true
+};

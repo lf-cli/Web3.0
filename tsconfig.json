@@ -19,6 +19,7 @@
   },
   "include": [
     "**/*.d.ts",
+    "src/*",
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
