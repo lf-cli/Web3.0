@@ -11,6 +11,7 @@ const PI = 3.1415926535897932384626
 const a = 6378245.0
 const ee = 0.00669342162296594323
 declare let AMap: any
+declare let map: any
 
 //  2.0 2.0.0beta
 enum myVersion {
@@ -502,4 +503,88 @@ export function json2Geojson(arr: object[], format: any) {
     geojson.features.push(obj)
   })
   return geojson
+}
+
+/**
+ *
+ * **/
+
+export function setWmtsLayer() {
+  let wmsLayer = new AMap.TileLayer.WMTS({
+    url: 'http://t4.tianditu.gov.cn/img_w/wmts',
+    blend: false,
+    tileSize: 256,
+    zIndex: 99,
+    params: {
+      Layer: 'img',
+      Version: '1.0.0',
+      Format: 'tiles',
+      TileMatrixSet: 'w',
+      STYLE: 'default',
+      tk: 'a24fdc73ea18261f464a5ba98597ea74'
+      // tk: '039d0efccc6e74452580b8d07c47fcc5'
+    }
+  })
+  return wmsLayer
+  // this.wms.setMap(this.map)
+}
+// 设置瓦片地图
+export function setTileLayer() {
+  let xyzTileLayer = new AMap.TileLayer({
+    // 图块取图地址
+    getTileUrl: (x: number, y: number, z: number) => {
+      return `http://prd9.hbjk.com.cn:49996/xiantao/1/${z}/${x}/${y}.png`
+    },
+    tileSize: 256,
+    zIndex: 101,
+    visible: true,
+    opacity: 1,
+    zooms: [5, 17]
+  })
+  return xyzTileLayer
+}
+function generateLnglat(paths: any[], showSatellite: boolean) {
+  paths.forEach((path) => {
+    if (Array.isArray(path)) {
+      generateLnglat(path, showSatellite)
+    }
+    let { lng, lat } = path
+    if (showSatellite) {
+      // 卫星图
+      let lngLatObj = transformGCJ2WGS(lat, lng)
+      path.lng = lngLatObj.lon
+      path.R = lngLatObj.lon
+      path.lat = lngLatObj.lat
+      path.Q = lngLatObj.lat
+    } else {
+      let lngLat = wgs84togcj02(lng, lat)
+      path.lng = lngLat[0]
+      path.lat = lngLat[1]
+      path.Q = lngLat[1]
+      path.R = lngLat[0]
+    }
+  })
+}
+// 调用此方法是由高德地图切成wgs84坐标系下的图层
+export function changeMapMode(showSatellite: boolean) {
+  let markers = map.getAllOverlays('marker')
+  let polygons = map.getAllOverlays('polygon')
+
+  let polylines = map.getAllOverlays('polyline')
+  polylines.concat(polygons).forEach((item: any) => {
+    let paths = item.getPath()
+    generateLnglat(paths, showSatellite)
+    item.setPath(paths)
+  })
+  markers.forEach((item: any) => {
+    let { lng, lat } = item.getPosition()
+    if (showSatellite) {
+      // 卫星图
+      let lngLatObj = transformGCJ2WGS(lat, lng)
+      item.setPosition([lngLatObj.lon, lngLatObj.lat])
+    } else {
+      let lngLat = wgs84togcj02(lng, lat)
+      item.setPosition(lngLat)
+    }
+  })
 }
