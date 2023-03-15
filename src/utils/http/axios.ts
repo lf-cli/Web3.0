@@ -13,7 +13,7 @@ import { ElLoading } from 'element-plus'
 // import qs from 'qs'
 
 import { getToken, User } from '../user'
-import { RequestOptions, Result, requesrParams } from '../../types/axios'
+import { RequestOptions, Result, requesrParams } from '../../../types/axios'
 
 interface myAxiosRequestConfig extends AxiosRequestConfig {
   headers?: any

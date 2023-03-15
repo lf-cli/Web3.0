@@ -60,16 +60,16 @@ npm run dev
 
 1. [x] eslint 校验
 2. [x] git 提交校验
-3. [ ] 公共方法封装
+3. [x] 公共方法封装
 4. [ ] inteface,type,enum 开发
 5. [x] icon 图标接入
 6. [x] 接入 elementui
-7. [ ] 接入高德地图
+7. [x] 接入高德地图
 8. [ ] 权限模块开发
 9. [x] http 封装
 10. [x] prettier 格式化
-11. [x] CI/CD 集成
+11. [ ] CI/CD 集成
 12. [ ] 公共组件
 13. [ ] 抽离路由，路由和 header 或者 nav 使用同一组数据
 14. [ ] 公共 hooks 开发
-15. [ ] eecharts 组件
+15. [ ] echarts 组件

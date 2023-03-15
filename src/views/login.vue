@@ -16,9 +16,10 @@
 <script lang="ts" setup>
   import { ref, onMounted } from 'vue'
   import { useRouter } from 'vue-router'
-  import { loadMap, addDistrictMask } from '@/utils/map'
+  import { loadMap, addDistrictMask, transformGCJ2WGS } from '@/utils/map'
   // import { ceshi } from '@/api/demo/ceshi'
-
+  let marker = transformGCJ2WGS(31.239706, 121.499717)
+  console.log(marker)
   const router = useRouter()
   const time = ref('')
 
