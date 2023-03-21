@@ -1,12 +1,31 @@
 import router from '../router/index'
+import { RouteRecordRaw } from 'vue-router'
+import { asyncRoutes } from '../router/routers'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
+import {
+  usePermissionStoreWithOut,
+  filterAsyncRouter
+} from '@/store/modules/permission'
 
 NProgress.configure({ showSpinner: false })
+const UsePermission = usePermissionStoreWithOut()
 
 router.beforeEach((to, from, next) => {
+  const routers = UsePermission.routers
   NProgress.start()
-  next()
+  if (!routers.length) {
+    console.log('注册路由')
+    // 如果store中没有路由，那就将动态的路由注册
+    let rewriteRouters = filterAsyncRouter(asyncRoutes)
+    UsePermission.setRoutes(rewriteRouters)
+    rewriteRouters.forEach((item) => {
+      router.addRoute(item as unknown as RouteRecordRaw)
+    })
+    next({ ...to, replace: true })
+  } else {
+    next()
+  }
   // 拦截 baseUrl 路径
 
   // 1 判断是否有token
@@ -22,5 +41,3 @@ router.beforeEach((to, from, next) => {
 router.afterEach(() => {
   NProgress.done() // 结束Progress
 })
-
-export function ceshi() {}

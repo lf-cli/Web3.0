@@ -6,12 +6,12 @@ import App from './App.vue'
 import 'virtual:svg-icons-register' // svgIcon
 import 'element-plus/dist/index.css'
 import './utils/permission'
+
 async function bootstrap() {
   const app = createApp(App)
+  setupStore(app)
 
   app.use(Router)
-
-  setupStore(app)
 
   app.mount('#app')
 }

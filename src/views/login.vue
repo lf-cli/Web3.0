@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>登录页面</h1>
-    <el-button type="primary" @click="router.push('/demo')">登录</el-button>
+    <el-button type="primary" @click="router.push('/home')">登录</el-button>
     <el-button :plain="true" @click="openVn">VNode</el-button>
     <el-date-picker
       v-model="time"

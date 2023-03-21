@@ -15,7 +15,7 @@ export const checkStatus = (status: number): void => {
     case 401:
       ElMessage.error('登录失效！请您重新登录')
       setTimeout(() => {
-        router.push(`/login?${params}`)
+        router.push(`/login?redirect=${params}`)
       }, 200)
       break
     case 403:

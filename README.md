@@ -70,6 +70,7 @@ npm run dev
 10. [x] prettier 格式化
 11. [ ] CI/CD 集成
 12. [ ] 公共组件
-13. [ ] 抽离路由，路由和 header 或者 nav 使用同一组数据
+13. [ ] 抽离路由，路由和 header 只需要维护 router/routers 里的数据即可
 14. [ ] 公共 hooks 开发
 15. [ ] echarts 组件
+16. [ ] windicss
