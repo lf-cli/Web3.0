@@ -5,7 +5,7 @@ npm run dev
 
 ### 项目架构说明
 
-> vite+ts+vue3.2+router4+pinia+pnpm+element-plus
+> vite+ts+vue3.2+router4+pinia+pnpm+element-plus+windicss
 
 ### 跟目录文件说明
 
@@ -56,21 +56,25 @@ npm run dev
 - 要遵从组合式 api 开发的理念，适当抽离 hook
 - components 里开发公共组件，且用大驼峰的方式命名
 
+### hook VS utils
+
+> 关于 hook 和公共方法，没有具体规定什么时候用 hooks 封装，什么用工具库封装。他们的旨意都是为了解耦，抽离公共逻辑。不同的是 hooks 在使用的时候一般会对外导出一些公共的变量或者方法，以便外部去用。utils 更侧重于一个方法就做这一件事，不用关心对外暴漏什么方法或者变量。比如 parseTime 就只需要格式化时间。useECharts 这个 hook 是为了封装 echarts，对外导出了 setOptions,echarts,resize 等方法，可以更加灵活
+
 ### TODO
 
 1. [x] eslint 校验
 2. [x] git 提交校验
 3. [x] 公共方法封装
-4. [ ] inteface,type,enum 开发
+4. [x] inteface,type,enum 开发
 5. [x] icon 图标接入
 6. [x] 接入 elementui
 7. [x] 接入高德地图
 8. [ ] 权限模块开发
 9. [x] http 封装
 10. [x] prettier 格式化
-11. [ ] CI/CD 集成
-12. [ ] 公共组件
-13. [ ] 抽离路由，路由和 header 只需要维护 router/routers 里的数据即可
-14. [ ] 公共 hooks 开发
-15. [ ] echarts 组件
-16. [ ] windicss
+11. [ ] CI/CD 集成 等后端一起做
+12. [x] 抽离路由，路由和 header 只需要维护 router/routers 里的数据即可
+13. [x] 公共 hooks 开发
+14. [x] echarts 组件（echart 不再用公共组件的形式，而是用 hook）
+15. [ ] windicss
+16. [x] vueuse 引入

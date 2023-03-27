@@ -7,11 +7,23 @@
 
 ##### router 使用
 
+```
+import router from '@/router/index'
+router.push('/home')
+```
+
 ##### svg 使用
 
 `<svg-icon icon-class="vite" style="width: 40px" />`
 
 ##### echarts 使用
+
+```
+<div ref="chartRef" class="chart"></div>
+const chartRef = ref<HTMLDivElement | null>(null)
+const { setOptions } = useECharts(chartRef as Ref<HTMLDivElement>)
+setOptions()
+```
 
 #### map 使用
 
